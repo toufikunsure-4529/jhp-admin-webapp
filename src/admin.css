@@ -1,0 +1,65 @@
+:root {
+  --offcanvas-width: 210px;
+  --topNavbar-Height: 0px;
+}
+
+.sidebar-nav {
+  width: var(--offcanvas-width) !important;
+}
+
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important;
+  }
+
+  .headerNav {
+    margin-left: var(--offcanvas-width);
+  }
+
+  /* .offcanvas-backdrop::before {
+      display: none;
+    } */
+
+  .sidebar-nav {
+    left: 0;
+    z-index: 999;
+    height: calc(100% - var(--topNavbar-Height)) !important;
+    top: var(--topNavbar-Height) !important;
+    transform: none !important;
+    visibility: visible;
+  }
+
+  .main-content {
+    margin-left: 250px; /* Matches the width of sidebar */
+  }
+}
+
+/* Customize the side menu for a better UI */
+.sidebar-nav {
+  width: 250px;
+}
+
+.menu-text {
+  font-size: 1rem; /* Increase text size */
+}
+
+.offcanvas-body {
+  padding: 10px;
+}
+
+.sidebar-nav .bi {
+  font-size: 1.2rem; /* Increase icon size */
+  color: aliceblue;
+}
+
+.main-content {
+  margin-top: 20px; /* Height of the header */
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.productTable th,
+tr {
+  font-size: 12px;
+  cursor: pointer;
+}
