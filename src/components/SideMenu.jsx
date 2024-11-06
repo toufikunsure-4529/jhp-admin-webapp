@@ -9,12 +9,12 @@ function SideMenu() {
     {
       name: "Dashboard",
       icon: "bi-speedometer2",
-      slug: "/admin/dashboard",
+      slug: "/home",
     },
     {
       name: "Create New Task",
       icon: "bi-list-task",
-      slug: "/admin/tasks/create",
+      slug: "/addtask",
     },
     {
       name: "Update Task Status",

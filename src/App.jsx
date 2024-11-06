@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { Navbar, SideMenu } from "./components";
+import "./admin.css";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         </p>
       </div>
       <div className=" d-flex justify-content-end px-4 pb-2">
-        <button className="btn btn-warning " >
+        <button className="btn btn-warning ">
           <i className="bi bi-arrow-up"></i>
         </button>
       </div>
