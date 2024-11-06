@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 function Dashboard() {
+  const [loading, setLoading] = useState(false);
+
+  const handleButtonClcik = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, [2000]);
+  };
   return (
     <div className="container text-center my-5">
       <h3 className="fw-bold mb-3">Good Morning</h3>
@@ -16,8 +24,25 @@ function Dashboard() {
               </div>
               <h5 className="card-title fw-semibold">Backlog</h5>
               <p className="card-text text-muted">Tasks that need attention</p>
-              <button className="btn btn-outline-primary rounded-pill mt-auto px-4">
-                <i className="bi bi-plus-circle me-2"></i>Add Task
+              <button
+                className="btn btn-outline-primary rounded-pill mt-auto px-4"
+                onClick={handleButtonClcik}
+                disabled={loading}
+              >
+                {loading ? (
+                  <>
+                    <span
+                      className="spinner-grow spinner-grow-sm"
+                      aria-hidden="true"
+                    ></span>
+                    <span role="status">Loading...</span>
+                  </>
+                ) : (
+                  <>
+                    <i className="bi bi-plus-circle me-2"></i>
+                    Add Task
+                  </>
+                )}
               </button>
             </div>
           </div>
