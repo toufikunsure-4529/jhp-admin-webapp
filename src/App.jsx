@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Navbar, SideMenu } from "./components";
 import "./admin.css";
+import authServiceAppwriteBackend from "./backend/auth";
+import { useDispatch } from "react-redux";
+import { login } from "./store/authSlice";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    authServiceAppwriteBackend
+      .getCurrentUserInfo()
+      .then((userInfo) => {
+        if (userInfo) {
+          dispatch(login({ userInfo }));
+          console.log(userInfo);
+        }
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
     <>
       <Navbar />

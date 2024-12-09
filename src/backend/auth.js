@@ -23,6 +23,16 @@ class AuthService {
       console.log(error);
     }
   }
+
+  //GET CURRENT USER INFO
+  async getCurrentUserInfo() {
+    try {
+      const currentUser = await this.account.get();
+      return currentUser;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 const authServiceAppwriteBackend = new AuthService();
